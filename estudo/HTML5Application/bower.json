@@ -1,0 +1,14 @@
+{
+        "name": "HTML5Application", "version": "1.0.0", "main": "path/to/main.css", "ignore": [
+                ".jshintrc", "**/*.txt"
+        ], "dependencies": {
+                "angular": "1.2.x",
+                "angular-resource": "1.2.x",
+                "angular-route": "1.2.x",
+                "angular-animate": "1.2.x",
+                "angular-touch": "1.2.x",
+                "angular-mocks": "1.2.x",
+                "bootstrap": "^3"
+        }, "devDependencies": {
+        }
+}
