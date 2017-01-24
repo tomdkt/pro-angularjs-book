@@ -5,6 +5,14 @@
  */
 
 angular.module("sportsStore")
-    .controller("sportsStoreCtrl", function ($scope) {
-      
+    .constant("dataUrl", "http://localhost:2403/products")
+    .controller("sportsStoreCtrl", function ($scope, $http, dataUrl) {
+      $scope.data = {};
+
+      $http.get(dataUrl).success(function (data) {
+        $scope.data.products = data;
+      }).error(function(error, status) {
+        $scope.data.error = { message: error, status: status};
+        console.log($scope.data.error.status);
+      });
     });
