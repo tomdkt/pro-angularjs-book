@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="sportsStore">
+    <head>
+        <title>SportsStore</title>
+        <script src="../bower_components/angular/angular.min.js" type="text/javascript"></script>
+        <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <script>
+            angular.module("sportsStore", ["customFilters"]);
+        </script>
+        <script src="controller/sportsStore.js" type="text/javascript"></script>
+        <script src="filter/customFilters.js" type="text/javascript"></script>
+        <script src="controller/productListControllers.js" type="text/javascript"></script>
+    </head>
+    <body ng-controller="productListCtrl">
+        <div class="navbar navbar-inverse">
+            <a class="navbar-brand" href="#"> SPORTS STORE </a>
+        </div>
+        <div class="panel panel-default row">
+            <div class="col-xs-3">
+                <a ng-click="selectCategory()" class="btn btn-block btn-default btn-lg">Home</a>
+                <a ng-repeat="item in data.products | orderBy: 'category' | unique: 'category'"
+                   ng-click="selectCategory(item)" class="btn btn-block btn-default btn-lg">
+                       {{item}}
+                </a>
+            </div>
+            <div class="col-xs-8">
+                <div class="well" ng-repeat="item in data.products | filter:categoryFilterFn">
+                    <h3>
+                        <strong>{{item.name}}</strong>
+                        <span class="pull-right label label-primary">
+                            {{item.price | currency}}
+                        </span>
+                        <span class="lead">{{item.description}}</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

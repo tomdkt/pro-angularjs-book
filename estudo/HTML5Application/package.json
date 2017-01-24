@@ -1,8 +1,20 @@
 {
-        "name": "HTML5Application",
-        "version": "1.0.0",
-        "keywords": ["util", "functional", "server", "client", "browser"],
-        "author": "thomas.teixeira",
-        "contributors": [],
-        "dependencies": {}
+  "name": "HTML5Application",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "thomas.teixeira",
+  "contributors": [],
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-express": "^1.4.1"
+  }
 }
