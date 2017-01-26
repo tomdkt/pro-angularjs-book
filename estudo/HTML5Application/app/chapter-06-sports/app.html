@@ -7,21 +7,30 @@
         <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
         <script>
-            angular.module("sportsStore", ["customFilters", "cart", "ngRoute"]).config(function ($routeProvider) {
-              $routeProvider.when("/checkout", {
-                templateUrl: "/views/checkoutSummary.html"
-              });
-              $routeProvider.when("/products", {
-                templateUrl: "/views/productList.html"
-              });
-              $routeProvider.otherwise({
-                templateUrl: "/views/productList.html"
-              });
-            });
+            angular.module("sportsStore", ["customFilters", "cart", "ngRoute"])
+                .config(function ($routeProvider) {
+                  $routeProvider.when("/complete", {
+                    templateUrl: "/HTML5Application/chapter-06-sports/views/thankYou.html"
+                  });
+
+                  $routeProvider.when("/placeorder", {
+                    templateUrl: "/HTML5Application/chapter-06-sports/views/placeOrder.html"
+                  });
+                  $routeProvider.when("/checkout", {
+                    templateUrl: "/HTML5Application/chapter-06-sports/views/checkoutSummary.html"
+                  });
+                  $routeProvider.when("/products", {
+                    templateUrl: "/HTML5Application/chapter-06-sports/views/productList.html"
+                  });
+                  $routeProvider.otherwise({
+                    templateUrl: "/HTML5Application/chapter-06-sports/views/productList.html"
+                  });
+                });
         </script>
         <script src="controller/sportsStore.js" type="text/javascript"></script>
         <script src="filter/customFilters.js" type="text/javascript"></script>
         <script src="controller/productListControllers.js" type="text/javascript"></script>
+        <script src="controller/checkoutControllers.js" type="text/javascript"></script>
         <script src="components/cart/cart.js" type="text/javascript"></script>
     </head>
     <body ng-controller="sportsStoreCtrl">
@@ -33,7 +42,7 @@
             Error {{data.error.status}}. The product data was not loaded.
             <a href="./app.html" class="alert-link">Click here to try again</a>
         </div>
-<!--    <ng-view />-->
-    <ng-include src="'views/productList.html'" ></ng-include>
+    <ng-view />
+    <!--<ng-include src="'views/productList.html'" ></ng-include>-->
 </body>
 </html>
